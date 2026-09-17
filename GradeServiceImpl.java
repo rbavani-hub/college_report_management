@@ -1,6 +1,9 @@
 package com.example.crms.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.example.crms.repository.StudentRepository;
 import com.example.crms.model.Student;
 import com.example.crms.model.Semester;
 import com.example.crms.model.Course;
@@ -8,9 +11,12 @@ import com.example.crms.model.Course;
 @Service
 public class GradeServiceImpl implements GradeService {
 
+    @Autowired
+    private StudentRepository studentRepository;
+
     @Override
     public Student saveStudent(Student student) {
-        return student; // for now just return
+        return studentRepository.save(student);
     }
 
     @Override
